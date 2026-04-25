@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alice AI Chat Application</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        #chat { border: 1px solid #ccc; padding: 10px; height: 300px; overflow-y: scroll; }
+        #userInput { width: 80%; }
+    </style>
+</head>
+<body>
+    <h1>Alice AI Chat Application</h1>
+    <div id="chat"></div>
+    <input type="text" id="userInput" placeholder="Type your message..." />
+    <button id="sendButton">Send</button>
+
+    <script>
+        document.getElementById('sendButton').onclick = function() {
+            var userMessage = document.getElementById('userInput').value;
+            document.getElementById('chat').innerHTML += `<div>User: ${userMessage}</div>`;
+            document.getElementById('userInput').value = '';
+            // Simulating a response from Alice AI
+            setTimeout(function() {
+                var aliceResponse = 'Alice: ' + (userMessage.includes('hello') ? 'Hello! How can I assist you today?' : 'I am here to help.');
+                document.getElementById('chat').innerHTML += `<div>${aliceResponse}</div>`;
+            }, 1000);
+        };
+    </script>
+</body>
+</html>
